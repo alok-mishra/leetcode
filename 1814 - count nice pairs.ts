@@ -1,16 +1,13 @@
 /*
 1814. Count Nice Pairs in an Array
 Medium
-Topics
-Companies
-Hint
 
 You are given an array nums that consists of non-negative integers. Let us define rev(x) as the reverse of the non-negative integer x. For example, rev(123) = 321, and rev(120) = 21. A pair of indices (i, j) is nice if it satisfies all of the following conditions:
 
     0 <= i < j < nums.length
     nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])
 
-Return the number of nice pairs of indices. Since that number can be too large, return it modulo 109 + 7.
+Return the number of nice pairs of indices. Since that number can be too large, return it modulo 10^9 + 7.
 
 Example 1:
 
@@ -36,18 +33,25 @@ Constraints:
 function countNicePairs(nums: number[]): number {
     const rev = (n: number): number => parseInt(n.toString().split('').reverse().join(''));
 
-    let countMap = {};
+    const mod = 10 ** 9 + 7;
+
+    let countMap: { [key: number]: number } = {};
+
     let nice = 0;
 
-    nums.forEach(num => {
+    nums.forEach((num) => {
+        const val = num - rev(num);
+        if (countMap[val] !== undefined) {
+            nice = (nice + countMap[val]) % mod;
+        }
 
-    })
+        countMap[val] = (countMap[val] || 0) + 1;
+    });
 
-    return 2;
-};
+    return nice;
+}
 
-
-countNicePairs([42,11,1,97]);
-countNicePairs([13,10,35,24,76]);
+console.log(countNicePairs([42, 11, 1, 97]));
+console.log(countNicePairs([13, 10, 35, 24, 76]));
 
 // tsc 1814\ -\ count\ nice\ pairs.ts && node 1814\ -\ count\ nice\ pairs.js

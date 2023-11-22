@@ -34,7 +34,7 @@ function countNicePairs(nums) {
     var mod = Math.pow(10, 9) + 7;
     var countMap = {};
     var nice = 0;
-    nums.forEach(function (num, index) {
+    nums.forEach(function (num) {
         var val = num - rev(num);
         if (countMap[val] !== undefined) {
             nice = (nice + countMap[val]) % mod;

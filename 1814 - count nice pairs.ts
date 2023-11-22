@@ -51,7 +51,7 @@ function countNicePairs(nums: number[]): number {
     return nice;
 }
 
-console.log(countNicePairs([42, 11, 1, 97]));
-console.log(countNicePairs([13, 10, 35, 24, 76]));
+console.log(countNicePairs([42, 11, 1, 97])); // 2
+console.log(countNicePairs([13, 10, 35, 24, 76])); // 4
 
 // tsc 1814\ -\ count\ nice\ pairs.ts && node 1814\ -\ count\ nice\ pairs.js

@@ -1,0 +1,26 @@
+{
+    "name": "leetcode",
+    "version": "1.2.0",
+    "description": "",
+    "scripts": {
+        "start": "nodemon --exec ts-node \"$(node ./scripts/entrypoint.js)\"",
+        "build": "tsc --watch",
+        "develop": "npm run start"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alok-mishra/leetcode.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/alok-mishra/leetcode/issues"
+    },
+    "homepage": "https://github.com/alok-mishra/leetcode#readme",
+    "devDependencies": {
+        "cross-env": "^7.0.3",
+        "nodemon": "^3.0.2",
+        "ts-node": "^10.9.2"
+    }
+}

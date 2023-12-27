@@ -42,6 +42,24 @@ Constraints:
 */
 
 function minCost(colors: string, neededTime: number[]): number {
+    let mininumTime = 0;
+
+    for (let i = 1; i < colors.length; i++) {
+        if (colors[i] === colors[i - 1]) {
+            mininumTime += Math.min(neededTime[i], neededTime[i - 1]);
+            neededTime[i] = Math.max(neededTime[i], neededTime[i - 1]);
+        }
+    }
+
+    return mininumTime;
+}
+
+console.log(minCost('abaac', [1, 2, 3, 4, 5])); // 3
+console.log(minCost('abc', [1, 2, 3])); // 0
+console.log(minCost('aabaa', [1, 2, 3, 4, 1])); // 2
+console.log(minCost('bbbaaa', [4, 9, 3, 8, 8, 9])); // 23
+
+function slowerMinCost(colors: string, neededTime: number[]): number {
     let baloons = colors.split('');
     let mininumTime = 0;
 
@@ -65,8 +83,3 @@ function minCost(colors: string, neededTime: number[]): number {
 
     return mininumTime;
 }
-
-console.log(minCost('abaac', [1, 2, 3, 4, 5])); // 3
-console.log(minCost('abc', [1, 2, 3])); // 0
-console.log(minCost('aabaa', [1, 2, 3, 4, 1])); // 2
-console.log(minCost('bbbaaa', [4, 9, 3, 8, 8, 9])); // 23
